@@ -1,0 +1,38 @@
+:root {
+  --brand-blue-800: #064a7f;
+  --brand-blue-700: #0765a7;
+  --brand-blue-600: #087bc2;
+  --brand-blue-500: #2099db;
+  --brand-blue-100: #dff3ff;
+  --brand-blue-50: #eff9ff;
+  --brand-teal-600: #008e91;
+  --brand-teal-100: #dff8f4;
+  --brand-green-700: #0b7d45;
+  --brand-green-600: #109050;
+  --brand-green-500: #1fb768;
+  --brand-green-400: #35d07f;
+  --brand-green-100: #ddf8e8;
+  --ink-950: #0b1725;
+  --ink-900: #102235;
+  --ink-800: #1f3447;
+  --ink-700: #385166;
+  --slate-600: #526a7c;
+  --slate-500: #708596;
+  --slate-300: #bed0dc;
+  --paper-100: #f3f8fb;
+  --paper-50: #f9fcfe;
+  --white: #ffffff;
+
+  --gradient-brand: linear-gradient(120deg, #087bc2 0%, #008e91 54%, #1fb768 100%);
+  --gradient-soft: linear-gradient(135deg, #edf9ff 0%, #f8fffc 48%, #ecfbf3 100%);
+
+  --container: 1280px;
+  --gutter: clamp(20px, 4vw, 64px);
+  --section-space: clamp(80px, 9vw, 132px);
+  --radius-sm: 12px;
+  --radius-md: 22px;
+  --radius-lg: 30px;
+  --radius-xl: 40px;
+  --shadow-soft: 0 24px 70px rgba(8, 76, 116, 0.11);
+  --shadow-card: 0 14px 40px rgba(9, 68, 103, 0.08);
+}

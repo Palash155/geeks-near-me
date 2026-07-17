@@ -1,0 +1,43 @@
+@import "../styles/reset.css";
+@import "../styles/tokens.css";
+@import "../styles/typography.css";
+@import "../styles/animations.css";
+
+html {
+  background: var(--paper-50);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background: var(--paper-50);
+  color: var(--ink-950);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+}
+
+::selection {
+  background: var(--brand-green-100);
+  color: var(--brand-green-700);
+}
+
+:focus-visible {
+  outline: 3px solid var(--brand-green-400);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 12px;
+  left: 12px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--paper-50);
+  color: var(--ink-950);
+  transform: translateY(-150%);
+  transition: transform 160ms ease-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}

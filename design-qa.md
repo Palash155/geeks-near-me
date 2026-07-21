@@ -78,4 +78,11 @@
 - `pnpm lint`: passed.
 - `pnpm run build`: passed; the homepage and not-found route were statically generated.
 
+## Popup motion and continuous hero autoplay
+
+- Mobile appointment popup was re-tested at 390 x 844 after replacing the expensive full-screen blur/scale combination with a lightweight opacity and vertical motion treatment.
+- The "Choose a service" dialog opened and closed successfully, retained the selected hero service and remained fully usable within the mobile viewport.
+- Hero autoplay was tested with the pointer held over the hero for longer than the seven-second interval; the visible slide advanced while hovered.
+- The manual pause control and reduced-motion behavior remain available.
+
 final result: passed

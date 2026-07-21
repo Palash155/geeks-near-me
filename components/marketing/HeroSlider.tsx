@@ -50,10 +50,9 @@ const AUTO_PLAY_DELAY = 7000;
 export function HeroSlider() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [manualPause, setManualPause] = useState(false);
-  const [interactionPause, setInteractionPause] = useState(false);
   const touchStart = useRef<number | null>(null);
   const reduceMotion = useReducedMotion();
-  const paused = manualPause || interactionPause || Boolean(reduceMotion);
+  const paused = manualPause || Boolean(reduceMotion);
 
   const showSlide = (index: number) => {
     setActiveSlide((index + slides.length) % slides.length);
@@ -73,12 +72,6 @@ export function HeroSlider() {
       id="top"
       aria-roledescription="carousel"
       aria-label="Geeks Near Me IT support services"
-      onMouseEnter={() => setInteractionPause(true)}
-      onMouseLeave={() => setInteractionPause(false)}
-      onFocusCapture={() => setInteractionPause(true)}
-      onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setInteractionPause(false);
-      }}
       onKeyDown={(event) => {
         if (event.key === "ArrowLeft") showSlide(activeSlide - 1);
         if (event.key === "ArrowRight") showSlide(activeSlide + 1);

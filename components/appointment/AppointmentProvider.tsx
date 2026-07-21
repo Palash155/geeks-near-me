@@ -101,6 +101,7 @@ function fieldError(message?: string) {
 export function AppointmentProvider({ children }: { children: ReactNode }) {
   const reduceMotion = useReducedMotion();
   const [isOpen, setIsOpen] = useState(false);
+  const [compactMotion, setCompactMotion] = useState(false);
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(1);
   const [values, setValues] = useState<FormValues>(initialValues);
@@ -122,6 +123,7 @@ export function AppointmentProvider({ children }: { children: ReactNode }) {
 
   const openModal = (service?: string) => {
     previousFocusRef.current = document.activeElement as HTMLElement | null;
+    setCompactMotion(window.matchMedia("(max-width: 880px)").matches);
     if (service) {
       const normalizedService = serviceAliases[service.toLowerCase()] ?? service;
       const match = services.find((item) => item.name.toLowerCase() === normalizedService.toLowerCase());
@@ -386,10 +388,10 @@ export function AppointmentProvider({ children }: { children: ReactNode }) {
               aria-labelledby="appointment-title"
               tabIndex={-1}
               ref={dialogRef}
-              initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24, scale: 0.965 }}
+              initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: compactMotion ? 14 : 24, scale: compactMotion ? 1 : 0.965 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 16, scale: 0.975 }}
-              transition={{ duration: reduceMotion ? 0 : 0.34, ease: [0.22, 1, 0.36, 1] }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: compactMotion ? 10 : 16, scale: compactMotion ? 1 : 0.975 }}
+              transition={{ duration: reduceMotion ? 0 : compactMotion ? 0.24 : 0.34, ease: [0.22, 1, 0.36, 1] }}
             >
               {reference ? (
                 <div className={styles.successState}>

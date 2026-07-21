@@ -1,9 +1,11 @@
 import { Logo } from "@/components/brand/Logo";
 import { Reveal } from "@/components/motion/Reveal";
 import { ServicesMenu } from "@/components/navigation/ServicesMenu";
+import { MobileNavigation } from "@/components/navigation/MobileNavigation";
 import { BackToTop } from "@/components/navigation/BackToTop";
 import { AppointmentProvider } from "@/components/appointment/AppointmentProvider";
-import { ArrowUpRight, ChatCircleText, Laptop, Printer, WifiHigh } from "@phosphor-icons/react/ssr";
+import { HeroSlider } from "@/components/marketing/HeroSlider";
+import { ArrowUpRight, ChatCircleText, Clock, FacebookLogo, Laptop, MapPin, Phone, Printer, ShieldCheck, WifiHigh } from "@phosphor-icons/react/ssr";
 import styles from "./page.module.css";
 
 const trustItems = [
@@ -105,7 +107,6 @@ export default function Home() {
 
       <div className={styles.announcement}>
         <p>On-site and remote technology support across Sydney <span>•</span> Available weekdays and weekends</p>
-        <a href="#request">Request an Appointment <ArrowIcon /></a>
       </div>
 
       <header className={styles.header}>
@@ -117,27 +118,13 @@ export default function Home() {
             <a href="#how-it-works">How it works</a>
             <a href="#faq">FAQ</a>
           </nav>
+          <MobileNavigation />
           <a className={styles.navCta} href="#request">Request an Appointment <ArrowIcon /></a>
         </div>
       </header>
 
       <main id="main-content">
-        <section id="top" className={styles.hero} aria-labelledby="hero-title">
-          <div className={styles.heroInner}>
-            <div className={styles.heroCopy}>
-              <h1 id="hero-title">
-                <span>Sydney IT support, simplified.</span>
-                <span>Expert help. Less tech stress.</span>
-              </h1>
-              <p className={styles.heroLead}>Practical help for Sydney homes, home offices and small businesses—without the confusing tech talk. Get support for computers, Wi-Fi, printers, email and software through an on-site visit or remote assistance.</p>
-              <div className={styles.heroActions}>
-                <a className={styles.primaryButton} href="#request">Request an Appointment <ArrowIcon /></a>
-                <a className={styles.secondaryButton} href="tel:0403171348">Call 0403 171 348</a>
-              </div>
-              <p className={styles.confirmationNote}><CheckIcon /> Choose your preferred date and time. Our team will review your request and confirm the appointment.</p>
-            </div>
-          </div>
-        </section>
+        <HeroSlider />
 
         <section className={styles.trustStrip} aria-label="Why customers choose our support">
           <div className={styles.trustGrid}>
@@ -271,12 +258,52 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <div className={styles.footerMain}>
-          <div><Logo inverse={false} /><p>Your Local On-Site IT Expert</p></div>
-          <div><span>Serving Sydney</span><a href="tel:0403171348">0403 171 348</a></div>
-          <div><span>Operating hours</span><p>9:00 am–7:00 pm</p></div>
+        <div className={styles.footerCta}>
+          <div>
+            <p>Local IT support across Sydney</p>
+            <h2>Need practical help with your technology?</h2>
+          </div>
+          <a href="#request">Request an Appointment <ArrowIcon /></a>
         </div>
-        <div className={styles.footerBottom}><span>© {new Date().getFullYear()} Geeks Near Me</span><span>Privacy-conscious appointment requests.</span></div>
+
+        <div className={styles.footerMain}>
+          <div className={styles.footerBrand}>
+            <span className={styles.footerLogo}><Logo inverse={false} /></span>
+            <p>Friendly on-site and remote support for Sydney homes, home offices and small businesses—explained in plain English.</p>
+            <a className={styles.socialLink} href="https://www.facebook.com/geeksnearme" target="_blank" rel="noreferrer">
+              <FacebookLogo size={20} weight="fill" /> Follow Geeks Near Me on Facebook
+            </a>
+          </div>
+
+          <div className={styles.footerColumn}>
+            <h3>Explore</h3>
+            <a href="#services">IT support services</a>
+            <a href="#support-options">Support options</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#faq">Common questions</a>
+          </div>
+
+          <div className={styles.footerColumn}>
+            <h3>Popular support</h3>
+            <a href="#request" data-appointment-service="Computer & laptop">Computer & laptop</a>
+            <a href="#request" data-appointment-service="Wi-Fi & internet">Wi-Fi & internet</a>
+            <a href="#request" data-appointment-service="Printer setup">Printer setup</a>
+            <a href="#request" data-appointment-service="Small business IT">Small business IT</a>
+          </div>
+
+          <div className={`${styles.footerColumn} ${styles.footerContact}`}>
+            <h3>Contact & availability</h3>
+            <a href="tel:0403171348"><Phone size={18} weight="fill" /><span><small>Call us</small>0403 171 348</span></a>
+            <p><MapPin size={18} weight="fill" /><span><small>Service area</small>Sydney, NSW</span></p>
+            <p><Clock size={18} weight="fill" /><span><small>Request times</small>Weekdays & weekends</span></p>
+          </div>
+        </div>
+
+        <div className={styles.footerBottom}>
+          <span>© {new Date().getFullYear()} Geeks Near Me. All rights reserved.</span>
+          <span className={styles.footerAssurance}><ShieldCheck size={16} weight="fill" /> Appointment requests are reviewed before confirmation.</span>
+          <a href="https://www.facebook.com/geeksnearme" target="_blank" rel="noreferrer">Facebook</a>
+        </div>
       </footer>
       <BackToTop />
     </div>

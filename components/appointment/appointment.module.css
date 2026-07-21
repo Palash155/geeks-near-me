@@ -49,7 +49,7 @@
 
 .conciergeIntro { margin-top: 42px; }
 .conciergeIntro h2 { max-width: 250px; color: var(--white); font-size: 31px; line-height: 1.12; letter-spacing: -0.04em; }
-.conciergeIntro p { max-width: 255px; margin-top: 14px; color: rgba(239, 250, 255, 0.76); font-size: 12px; line-height: 1.65; }
+.conciergeIntro p { max-width: 255px; margin-top: 14px; color: rgba(239, 250, 255, 0.76); font-size: 13px; line-height: 1.65; }
 
 .progressList {
   display: grid;
@@ -154,7 +154,7 @@
 .textareaField { margin-top: 20px; }
 .textareaField textarea { min-height: 98px; padding-block: 12px; resize: vertical; }
 .fieldGrid input:focus, .textareaField textarea:focus { border-color: var(--brand-blue-500); box-shadow: 0 0 0 4px rgba(32,153,219,.11); }
-.fieldNote { display: flex; gap: 7px; align-items: center; margin-top: 16px; color: var(--slate-500); font-size: 9px; }
+.fieldNote { display: flex; gap: 7px; align-items: center; margin-top: 16px; color: var(--slate-500); font-size: 13px; }
 .error { display: block; margin-top: 6px; color: #b42318; font-size: 9px; font-weight: 650; }
 
 .timeFieldset { margin-top: 20px; border: 0; }
@@ -180,7 +180,7 @@
 .termsField input { width: 17px; height: 17px; flex: 0 0 auto; accent-color: var(--brand-green-600); }
 
 .modalFooter { display: flex; grid-column: 1 / -1; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 30px; border-top: 1px solid #dce8ef; background: rgba(255,255,255,.98); }
-.modalFooter p { display: flex; gap: 8px; align-items: center; color: var(--slate-500); font-size: 9px; }
+.modalFooter p { display: flex; gap: 8px; align-items: center; color: var(--slate-500); font-size: 13px; }
 .modalFooter p svg { color: var(--brand-blue-700); }
 .modalFooter > div { display: flex; gap: 10px; align-items: center; }
 .backButton, .continueButton { display: inline-flex; gap: 9px; align-items: center; justify-content: center; min-height: 48px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 11px; font-weight: 750; transition: box-shadow 180ms ease, background-color 180ms ease, color 180ms ease, opacity 180ms ease, transform 180ms ease; }
@@ -195,7 +195,7 @@
 
 .successState { display: grid; grid-column: 1 / -1; grid-row: 1 / -1; align-content: center; justify-items: center; padding: 48px; background: radial-gradient(circle at 50% 36%, var(--brand-green-100), transparent 30%), linear-gradient(145deg, #fff, #f2fbf7); text-align: center; }
 .successState > span { color: var(--brand-green-600); }
-.successState > p:first-of-type { margin-top: 18px; color: var(--brand-green-700); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.successState > p:first-of-type { margin-top: 18px; color: var(--brand-green-700); font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .successState h2 { max-width: 650px; margin-top: 10px; font-size: clamp(34px, 5vw, 58px); letter-spacing: -.05em; }
 .successState > p:last-of-type { max-width: 620px; margin-top: 18px; color: var(--slate-600); font-size: 13px; line-height: 1.7; }
 .successState > div { display: grid; gap: 5px; margin-top: 24px; padding: 14px 24px; border: 1px solid #cfe4d8; border-radius: 14px; background: rgba(255,255,255,.82); }

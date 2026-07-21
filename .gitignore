@@ -29,6 +29,8 @@ next-env.d.ts
 # test artifacts
 /playwright-report
 /test-results
+/tmp
+/.pnpm-store
 
 # local uploads and backups
 /data

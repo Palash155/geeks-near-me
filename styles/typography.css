@@ -9,6 +9,7 @@ h4 {
 }
 
 p {
+  font-size: max(13px, 1em);
   text-wrap: pretty;
 }
 

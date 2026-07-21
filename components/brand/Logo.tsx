@@ -1,6 +1,8 @@
+import Image from "next/image";
 import styles from "./logo.module.css";
 
 type LogoProps = {
+  className?: string;
   compact?: boolean;
   inverse?: boolean;
 };
@@ -45,16 +47,17 @@ export function LogoMark({ className = "" }: { className?: string }) {
   );
 }
 
-export function Logo({ compact = false, inverse = true }: LogoProps) {
+export function Logo({ className = "", compact = false, inverse = true }: LogoProps) {
   return (
-    <span className={`${styles.logo} ${inverse ? styles.inverse : ""}`}>
-      <LogoMark className={styles.mark} />
-      {!compact && (
-        <span className={styles.wordmark} aria-hidden="true">
-          <span>Geeks</span>
-          <span>Near Me</span>
-        </span>
-      )}
+    <span className={`${styles.logo} ${compact ? styles.compact : ""} ${inverse ? styles.inverse : ""} ${className}`}>
+      <Image
+        className={styles.asset}
+        src="/brand/geeks-near-me-logo.svg"
+        alt="Geeks Near Me"
+        width={512}
+        height={200}
+        unoptimized
+      />
     </span>
   );
 }

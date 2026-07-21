@@ -1,6 +1,9 @@
 import { Logo } from "@/components/brand/Logo";
 import { Reveal } from "@/components/motion/Reveal";
 import { ServicesMenu } from "@/components/navigation/ServicesMenu";
+import { BackToTop } from "@/components/navigation/BackToTop";
+import { AppointmentProvider } from "@/components/appointment/AppointmentProvider";
+import { ArrowUpRight, ChatCircleText, Laptop, Printer, WifiHigh } from "@phosphor-icons/react/ssr";
 import styles from "./page.module.css";
 
 const trustItems = [
@@ -11,14 +14,14 @@ const trustItems = [
 ];
 
 const services = [
-  ["01", "Computer and Laptop Support", "Slow performance, startup problems, crashes, updates and general troubleshooting."],
-  ["02", "Wi-Fi and Internet Help", "Weak Wi-Fi, connection dropouts, router setup and devices that will not connect."],
-  ["03", "Printer Setup", "Connect, configure and troubleshoot home or office printers and wireless printing."],
-  ["04", "Email and Software", "Email setup, trusted software installation, application errors and essential settings."],
-  ["05", "Virus and Malware Help", "Investigate suspicious behaviour, unwanted programs, browser pop-ups and security concerns."],
-  ["06", "New Device Setup", "Set up a new computer, connect devices and configure the software you use every day."],
-  ["07", "Data Transfer Assistance", "Move important documents, photos and files between compatible devices with care."],
-  ["08", "Small Business IT Support", "Practical help for the computers, connectivity and tools used by small Sydney teams."],
+  ["01", "Computer and Laptop Support", "Slow performance, startup problems, crashes, updates and general troubleshooting.", "computer"],
+  ["02", "Wi-Fi and Internet Help", "Weak Wi-Fi, connection dropouts, router setup and devices that will not connect.", "wifi"],
+  ["03", "Printer Setup", "Connect, configure and troubleshoot home or office printers and wireless printing.", "printer"],
+  ["04", "Email and Software", "Email setup, trusted software installation, application errors and essential settings.", "mail"],
+  ["05", "Virus and Malware Help", "Investigate suspicious behaviour, unwanted programs, browser pop-ups and security concerns.", "shield"],
+  ["06", "New Device Setup", "Set up a new computer, connect devices and configure the software you use every day.", "setup"],
+  ["07", "Data Transfer Assistance", "Move important documents, photos and files between compatible devices with care.", "transfer"],
+  ["08", "Small Business IT Support", "Practical help for the computers, connectivity and tools used by small Sydney teams.", "business"],
 ];
 
 const supportModes = [
@@ -52,9 +55,16 @@ const faqs = [
   ["Do you support small businesses?", "Yes. Small businesses can request help with computers, Wi-Fi, printers, email, software and other everyday IT issues."],
 ];
 
+const quickServices = [
+  { label: "Computer & laptop", copy: "Performance, setup and repairs", icon: Laptop },
+  { label: "Wi-Fi & internet", copy: "Coverage, routers and dropouts", icon: WifiHigh },
+  { label: "Printer setup", copy: "Installation and connection help", icon: Printer },
+  { label: "Something else", copy: "Tell us what is happening", icon: ChatCircleText },
+];
+
 function ArrowIcon() {
   return (
-    <svg viewBox="0 0 20 20" aria-hidden="true">
+    <svg className={styles.arrowIcon} viewBox="0 0 20 20" aria-hidden="true">
       <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -68,8 +78,28 @@ function CheckIcon() {
   );
 }
 
+function ServiceCardIcon({ type }: { type: string }) {
+  const paths: Record<string, string> = {
+    computer: "M4 5.5h12v8H4zM7.5 16h5M10 13.5V16",
+    wifi: "M3.5 8.2a9.4 9.4 0 0 1 13 0M6 11a5.8 5.8 0 0 1 8 0M8.6 13.7a2 2 0 0 1 2.8 0M10 16h.01",
+    printer: "M6 7V4h8v3M6 14H4V8h12v6h-2M6 11h8v5H6zM13.5 9.5h.01",
+    mail: "M3.5 5.5h13v9h-13zM4.5 6.5 10 11l5.5-4.5",
+    shield: "M10 3.5 16 6v4.2c0 3.5-2.3 5.7-6 6.8-3.7-1.1-6-3.3-6-6.8V6zM7.5 10.2l1.7 1.7 3.5-3.7",
+    setup: "M5 5.5h10v7H5zM8 15.5h4M10 12.5v3M15.5 3.5v3M14 5h3",
+    transfer: "M4 7h11M12 4l3 3-3 3M16 13H5M8 10l-3 3 3 3",
+    business: "M4 7h12v9H4zM7 7V4h6v3M4 11h12M9 11v2h2v-2",
+  };
+
+  return (
+    <svg viewBox="0 0 20 20" aria-hidden="true">
+      <path d={paths[type]} fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
+    <AppointmentProvider>
     <div className={styles.page}>
       <a className="skip-link" href="#main-content">Skip to content</a>
 
@@ -96,9 +126,8 @@ export default function Home() {
           <div className={styles.heroInner}>
             <div className={styles.heroCopy}>
               <h1 id="hero-title">
-                <span>Sydney IT support.</span>
-                <span>Clear answers.</span>
-                <span>Less tech stress.</span>
+                <span>Sydney IT support, simplified.</span>
+                <span>Expert help. Less tech stress.</span>
               </h1>
               <p className={styles.heroLead}>Practical help for Sydney homes, home offices and small businesses—without the confusing tech talk. Get support for computers, Wi-Fi, printers, email and software through an on-site visit or remote assistance.</p>
               <div className={styles.heroActions}>
@@ -124,15 +153,21 @@ export default function Home() {
         <section id="services" className={styles.services} aria-labelledby="services-title">
           <div className={styles.sectionShell}>
             <Reveal className={styles.sectionIntro}>
-              <p className={styles.kicker}>How we can help</p>
-              <div><h2 id="services-title">Practical help for everyday technology problems.</h2><p>Whether one device has stopped working or your whole setup is becoming difficult to manage, we help identify the problem and recommend a practical next step.</p></div>
+              <p className={styles.kicker}>Our services</p>
+              <h2 id="services-title">Practical IT support for Sydney homes and businesses.</h2>
+              <p>From computers and Wi-Fi to printers, software and new device setup, get clear and reliable support through one practical local service.</p>
             </Reveal>
             <div className={styles.serviceGrid}>
-              {services.map(([number, title, copy], index) => (
-                <Reveal className={styles.serviceCard} delay={(index % 4) * 0.05} key={number}>
-                  <div className={styles.serviceTop}><span>{number}</span><i /></div>
+              {services.map(([number, title, copy, icon], index) => (
+                <Reveal delay={(index % 4) * 0.05} key={number}>
+                  <a className={styles.serviceCard} href="#request" data-appointment-service={title} aria-label={`Request help with ${title}`}>
+                  <div className={styles.serviceTop}>
+                    <span className={styles.serviceIcon}><ServiceCardIcon type={icon} /></span>
+                    <span className={styles.serviceNumber}>{number}</span>
+                  </div>
                   <h3>{title}</h3><p>{copy}</p>
-                  <a href="#request" aria-label={`Request help with ${title}`}>Request help <ArrowIcon /></a>
+                  <span className={styles.serviceCardLink}>Request help <ArrowIcon /></span>
+                  </a>
                 </Reveal>
               ))}
             </div>
@@ -185,8 +220,19 @@ export default function Home() {
               <p>Clear information about availability, appointment confirmation and the support we provide.</p>
             </Reveal>
             <div className={styles.faqList}>
-              {faqs.map(([question, answer]) => (
-                <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>
+              {faqs.map(([question, answer], index) => (
+                <details key={question}>
+                  <summary>
+                    <span className={styles.faqQuestion}><span className={styles.faqNumber}>0{index + 1}</span>{question}</span>
+                    <span className={styles.faqToggle} aria-hidden="true">
+                      <svg viewBox="0 0 20 20">
+                        <path d="M5 10h10" />
+                        <path className={styles.faqVertical} d="M10 5v10" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <p>{answer}</p>
+                </details>
               ))}
             </div>
           </div>
@@ -201,13 +247,23 @@ export default function Home() {
               <a className={styles.phoneCta} href="tel:0403171348">Prefer to speak with us? <strong>0403 171 348</strong></a>
             </Reveal>
             <Reveal className={styles.requestCard} delay={0.08}>
-              <div className={styles.requestCardHeader}><span>Appointment request</span><span>01 / 04</span></div>
+              <div className={styles.requestCardHeader}><span>Appointment request</span><span>Guided in 4 steps</span></div>
               <div className={styles.progressTrack}><span /></div>
               <div className={styles.requestCardBody}>
-                <p>First, what can we help with?</p>
-                <div className={styles.choiceGrid}><span>Computer or laptop</span><span>Wi-Fi or internet</span><span>Printer or email</span><span>Something else</span></div>
-                <button type="button" className={styles.demoButton} aria-label="Appointment form coming in the next implementation stage">Continue <ArrowIcon /></button>
-                <small>Your preferred time is confirmed after our team reviews the request.</small>
+                <span className={styles.requestCardEyebrow}>Start with your service</span>
+                <h3>What can we help with today?</h3>
+                <p className={styles.requestCardLead}>Choose a service to begin the full appointment request. You can review every detail before sending.</p>
+                <div className={styles.choiceGrid} aria-label="Choose a service to start your request">
+                  {quickServices.map(({ label, copy, icon: Icon }) => (
+                    <button type="button" className={styles.choiceButton} key={label} data-appointment-trigger data-appointment-service={label}>
+                      <span className={styles.choiceIcon}><Icon size={20} weight="regular" /></span>
+                      <span><strong>{label}</strong><small>{copy}</small></span>
+                      <ArrowUpRight className={styles.choiceArrow} size={18} weight="bold" />
+                    </button>
+                  ))}
+                </div>
+                <button type="button" className={styles.demoButton} data-appointment-trigger>Open full appointment request <ArrowIcon /></button>
+                <small>Your request is reviewed by our team before any appointment is confirmed.</small>
               </div>
             </Reveal>
           </div>
@@ -222,6 +278,8 @@ export default function Home() {
         </div>
         <div className={styles.footerBottom}><span>© {new Date().getFullYear()} Geeks Near Me</span><span>Privacy-conscious appointment requests.</span></div>
       </footer>
+      <BackToTop />
     </div>
+    </AppointmentProvider>
   );
 }

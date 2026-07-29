@@ -4,14 +4,14 @@ import { List, X } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 import styles from "./mobile-navigation.module.css";
 
-const navigationItems = [
+const defaultNavigationItems = [
   ["Services", "#services"],
   ["Support options", "#support-options"],
   ["How it works", "#how-it-works"],
   ["FAQ", "#faq"],
 ];
 
-export function MobileNavigation() {
+export function MobileNavigation({ items = defaultNavigationItems }: { items?: string[][] }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +37,7 @@ export function MobileNavigation() {
         {open ? <X size={21} weight="bold" /> : <List size={23} weight="bold" />}
       </button>
       <nav className={styles.panel} id="mobile-primary-navigation" aria-label="Mobile primary navigation">
-        {navigationItems.map(([label, href], index) => (
+        {items.map(([label, href], index) => (
           <a href={href} key={href} onClick={() => setOpen(false)}>
             <span>0{index + 1}</span>{label}
           </a>

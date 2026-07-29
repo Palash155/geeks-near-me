@@ -87,6 +87,7 @@ const serviceAliases: Record<string, string> = {
   "computer and laptop support": "Computer & laptop",
   "wi-fi and internet help": "Wi-Fi & internet",
   "printer setup": "Printer setup",
+  "printer support": "Printer setup",
   "email and software": "Email & software",
   "virus and malware help": "Virus & malware",
   "new device setup": "New device setup",

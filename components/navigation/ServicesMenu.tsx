@@ -106,14 +106,14 @@ export function ServicesMenu() {
             <span>IT support services</span>
             <p>Choose a common problem or tell us what is happening.</p>
           </div>
-          <a href="#services" onClick={() => setOpen(false)}>View all services <ArrowIcon /></a>
+          <a href="/services" onClick={() => setOpen(false)}>View all services <ArrowIcon /></a>
         </div>
 
         <div className={styles.menuBody}>
           <div className={styles.serviceColumn}>
             <p className={styles.columnLabel}>Fix & connect</p>
             {primaryServices.map(([title, copy, type]) => (
-              <a href="#request" className={styles.serviceLink} key={title} onClick={() => setOpen(false)}>
+              <a href="#request" className={styles.serviceLink} data-appointment-service={title} key={title} onClick={() => setOpen(false)}>
                 <span className={styles.icon}><ServiceIcon type={type} /></span>
                 <span><strong>{title}</strong><small>{copy}</small></span>
               </a>
@@ -123,7 +123,7 @@ export function ServicesMenu() {
           <div className={styles.serviceColumn}>
             <p className={styles.columnLabel}>Set up & simplify</p>
             {setupServices.map(([title, copy, type]) => (
-              <a href="#request" className={styles.serviceLink} key={title} onClick={() => setOpen(false)}>
+              <a href="#request" className={styles.serviceLink} data-appointment-service={title} key={title} onClick={() => setOpen(false)}>
                 <span className={styles.icon}><ServiceIcon type={type} /></span>
                 <span><strong>{title}</strong><small>{copy}</small></span>
               </a>

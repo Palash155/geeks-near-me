@@ -1,0 +1,153 @@
+.announcement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px var(--gutter);
+  background: var(--gradient-brand);
+  color: var(--white);
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+.announcement p {
+  opacity: 0.94;
+  text-align: center;
+}
+
+.announcement span {
+  margin-inline: 10px;
+}
+
+.header {
+  position: sticky;
+  z-index: 50;
+  top: 0;
+  padding: 0 var(--gutter);
+  border-bottom: 1px solid rgba(8, 123, 194, 0.1);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(18px);
+}
+
+.navShell {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 36px;
+  align-items: center;
+  width: min(100%, var(--container));
+  min-height: 82px;
+  margin-inline: auto;
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(22px, 3vw, 42px);
+  color: var(--ink-700);
+  font-size: 13px;
+}
+
+.nav a {
+  transition: color 160ms ease;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--brand-blue-700);
+}
+
+.navCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 19px;
+  border: 1px solid rgba(8, 123, 194, 0.18);
+  border-radius: 999px;
+  background: var(--white);
+  box-shadow: 0 8px 25px rgba(8, 80, 120, 0.07);
+  color: var(--brand-blue-700);
+  font-size: 13px;
+  font-weight: 700;
+  transition: background-color 180ms ease, box-shadow 180ms ease, opacity 180ms ease, transform 180ms ease;
+}
+
+.navCta:hover,
+.navCta:focus-visible {
+  background-color: color-mix(in srgb, var(--white) 70%, var(--brand-blue-700) 30%);
+  box-shadow: var(--hover-button-shadow);
+  color: var(--brand-blue-800);
+  opacity: 0.98;
+  transform: translateY(-2px);
+}
+
+.navCta:focus-visible {
+  outline: 3px solid rgba(31, 183, 104, 0.45);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  .navShell {
+    gap: 16px;
+  }
+
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .announcement {
+    min-height: 42px;
+    padding-block: 10px;
+    text-align: center;
+  }
+
+  .navShell {
+    min-height: 70px;
+    gap: 8px;
+  }
+
+  .header {
+    padding-inline: 14px;
+  }
+
+  .navCta {
+    min-height: 42px;
+    padding: 0 11px;
+  }
+
+  .navCtaLabel {
+    font-size: 0;
+  }
+
+  .navCtaLabel::before {
+    font-size: 13px;
+    content: "Request help";
+  }
+}
+
+@media (max-width: 390px) {
+  .announcement {
+    font-size: 12px;
+  }
+
+  .announcement span {
+    margin-inline: 5px;
+  }
+
+  .navCtaLabel::before {
+    content: "Help";
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navCta:hover,
+  .navCta:focus-visible {
+    transform: none;
+  }
+}

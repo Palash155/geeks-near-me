@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
 
 const allowedServices = new Set([
-  "Computer help",
-  "Internet & Wi-Fi",
-  "Printer & email help",
-  "Data recovery & transfer",
-  "New device setup",
+  "Scary Pop-Ups",
+  "Computer Problems",
+  "Printer Problems",
+  "Internet Problems",
+  "New Device",
+  "Data Recovery & Transfer",
+  "Not sure yet",
 ]);
 
 const allowedBookingFor = new Set(["Myself", "Someone else"]);

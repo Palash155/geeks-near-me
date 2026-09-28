@@ -25,3 +25,14 @@ Implementation evidence:
 - Runtime: passed. No browser console warnings/errors were found. ESLint, TypeScript and production build all pass.
 
 final result: passed
+
+## Latest two-page reference redesign
+
+- Compared the rendered homepage at a 665 px viewport with client reference image 1. Confirmed the header, photo hero, two-column six-service grid, call-back panel, help banner, benefit row, and replacement footer.
+- Compared the rendered appointment page at a 1024 px viewport with client reference image 2. Confirmed the selected service, one-column input stack, right-side support panels, bottom location panel, and shared footer.
+- Checked a 390 px mobile viewport: the form remains single-column and usable. Both pages have no horizontal overflow.
+- Clicked a service card and confirmed the booking page receives the selected service in its URL and visible panel.
+- `npm run typecheck`, `npm run lint`, and `npm run build` passed.
+- Booking page buttons are intentionally visual-only pending the next implementation phase; they do not submit or navigate.
+
+final result: passed

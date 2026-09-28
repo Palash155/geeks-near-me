@@ -1,0 +1,87 @@
+.picker { margin-bottom: 23px; }
+
+.selectedService {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 16px;
+  border: 1px solid #dfebfa;
+  border-radius: 10px;
+  background: #f1f7ff;
+}
+
+.selectedIcon, .optionIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  color: #1263c5;
+  background: #dcecff;
+  border-radius: 50%;
+}
+
+.selectedIcon { width: 47px; height: 47px; }
+.optionIcon { width: 36px; height: 36px; }
+.optionIcon svg { width: 19px; height: 19px; }
+.selectedService strong { color: #17364b; font-size: 15px; }
+
+.selectedService > button {
+  margin-left: auto;
+  padding: 9px 7px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #1464bd;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.selectedService > button:hover { color: #08477f; background: #e1efff; }
+
+.optionsPanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 260ms ease, opacity 220ms ease, visibility 260ms;
+}
+
+.optionsPanel[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+}
+
+.optionsInner { min-height: 0; overflow: hidden; }
+.optionsInner > p { padding: 16px 1px 9px; color: #35536a; font-size: 13px; font-weight: 700; }
+.optionsGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; padding: 1px 1px 3px; }
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 8px 11px;
+  border: 1px solid #dbe7ef;
+  border-radius: 10px;
+  background: #fff;
+  color: #17364b;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 200ms ease, background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+.option:hover { border-color: #80b5e8; background: #f5faff; transform: translateY(-2px); box-shadow: 0 5px 12px #1b5d9b16; }
+.option[aria-pressed="true"] { border-color: #4e9be5; background: #eef6ff; }
+
+@media (max-width: 550px) {
+  .optionsGrid { grid-template-columns: 1fr; }
+  .option { min-height: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .optionsPanel, .option, .selectedService > button { transition: none; }
+}

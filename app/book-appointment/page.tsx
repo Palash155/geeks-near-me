@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Buildings, CalendarBlank, Desktop, DeviceMobile, HardDrives, Headset, House, Lightning, LockKey, MapPin, Phone, Printer, ShieldWarning, WifiHigh } from "@phosphor-icons/react/ssr";
+import { ArrowRight, Buildings, CalendarBlank, House, Lightning, LockKey, MapPin, Phone, ShieldWarning } from "@phosphor-icons/react/ssr";
 import { ReferenceFooter, ReferenceHeader } from "@/components/reference/ReferenceShell";
-import { getReferenceService, type ReferenceService } from "@/components/reference/services";
+import { SelectedServicePicker } from "./SelectedServicePicker";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -11,21 +11,8 @@ export const metadata: Metadata = {
   description: "Tell Geeks Near Me a few details about the technology help you need in Sydney.",
 };
 
-function SelectedIcon({ slug }: { slug: ReferenceService["slug"] }) {
-  const props = { size: 23, weight: "regular" as const, "aria-hidden": true as const };
-  switch (slug) {
-    case "scary-pop-ups": return <ShieldWarning {...props} />;
-    case "printer-issues": return <Printer {...props} />;
-    case "new-device-setup": return <DeviceMobile {...props} />;
-    case "internet-wifi": return <WifiHigh {...props} />;
-    case "computer-problems": return <Desktop {...props} />;
-    case "data-recovery-transfer": return <HardDrives {...props} />;
-  }
-}
-
 export default async function BookAppointmentPage({ searchParams }: { searchParams: Promise<{ service?: string }> }) {
   const { service: slug } = await searchParams;
-  const service = slug ? getReferenceService(slug) : null;
 
   return (
     <>
@@ -48,11 +35,7 @@ export default async function BookAppointmentPage({ searchParams }: { searchPara
           <div className={styles.bookingLayout}>
             <div className={styles.formCard}>
               <h2>Selected Service</h2>
-              <div className={styles.selectedService}>
-                <span className={styles.selectedIcon}>{service ? <SelectedIcon slug={service.slug} /> : <Headset size={23} aria-hidden="true" />}</span>
-                <strong>{service?.title ?? "Not sure yet"}</strong>
-                <button type="button">Change</button>
-              </div>
+              <SelectedServicePicker initialSlug={slug} />
               <div className={styles.fieldGrid}>
                 <label><span>Your Name <b>*</b></span><input type="text" placeholder="Enter your full name" /></label>
                 <label><span>Phone Number <b>*</b></span><input type="tel" placeholder="e.g. 0403 171 348" /></label>

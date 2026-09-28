@@ -14,10 +14,6 @@
 .formCard, .reassurance, .callout { border-radius: 17px; box-shadow: 0 9px 31px #163f5720; }
 .formCard { padding: clamp(27px, 3vw, 43px); background: white; border: 1px solid #e3edef; }
 .formCard h2 { font-family: Georgia, serif; color: #19364b; font-size: 21px; letter-spacing: -.025em; margin-bottom: 17px; }
-.selectedService { background: #f1f7ff; border: 1px solid #dfebfa; border-radius: 10px; padding: 13px 16px; display: flex; align-items: center; gap: 13px; margin-bottom: 23px; }
-.selectedIcon { width: 47px; height: 47px; display: grid; place-items: center; flex: none; color: #1263c5; background: #dcecff; border-radius: 50%; }
-.selectedService strong { color: #17364b; font-size: 15px; }
-.selectedService button { margin-left: auto; border: 0; background: none; color: #1464bd; cursor: pointer; font-size: 13px; }
 .fieldGrid { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .fieldGrid label, .fullField { display: flex; flex-direction: column; gap: 9px; color: #16374c; font-size: 13px; font-weight: 700; }
 .fieldGrid label b, .fullField b { color: #0b2850; display: inline; }

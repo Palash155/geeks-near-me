@@ -1,0 +1,8 @@
+[build]
+  command = "pnpm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Netlify automatically installs its current OpenNext adapter for Next.js.

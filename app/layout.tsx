@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const siteFont = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -18,7 +18,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-AU" className={plusJakartaSans.variable}>
+    <html lang="en-AU" className={siteFont.variable}>
       <body>{children}</body>
     </html>
   );

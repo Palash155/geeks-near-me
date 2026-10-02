@@ -26,7 +26,7 @@ function ServiceIcon({ slug }: { slug: ReferenceService["slug"] }) {
   }
 }
 
-export function SelectedServicePicker({ initialSlug }: { initialSlug?: string }) {
+export function SelectedServicePicker({ initialSlug, onChange }: { initialSlug?: string; onChange?: (slug: string) => void }) {
   const [selectedSlug, setSelectedSlug] = useState(initialSlug);
   const [open, setOpen] = useState(false);
   const pickerRef = useRef<HTMLDivElement>(null);
@@ -63,6 +63,7 @@ export function SelectedServicePicker({ initialSlug }: { initialSlug?: string })
 
   function chooseService(service: ReferenceService) {
     setSelectedSlug(service.slug);
+    onChange?.(service.slug);
     setOpen(false);
 
     const url = new URL(window.location.href);

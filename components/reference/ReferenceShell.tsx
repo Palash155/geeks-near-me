@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Phone } from "@phosphor-icons/react/ssr";
+import { Logo } from "@/components/brand/Logo";
 import styles from "./reference-shell.module.css";
 
 export function ReferenceHeader({ booking = false }: { booking?: boolean }) {
@@ -7,7 +8,7 @@ export function ReferenceHeader({ booking = false }: { booking?: boolean }) {
     <header className={styles.header}>
       <div className={styles.headerInner}>
         <Link className={styles.brand} href="/" aria-label="Geeks Near Me home">
-          <span className={styles.wordmark}>Geeks<span>Near Me</span></span>
+          <Logo className={styles.brandLogo} inverse={false} />
           {booking && <span className={styles.brandTag}>Your Local On-Site IT Partner</span>}
         </Link>
         <nav className={styles.nav} aria-label="Main navigation">
@@ -39,7 +40,7 @@ export function ReferenceFooter() {
     <footer className={styles.footer} id="contact">
       <div className={styles.footerTop}>
         <div className={styles.footerBrand}>
-          <span className={styles.wordmark}>Geeks<span>Near Me</span></span>
+          <Logo className={styles.footerLogo} inverse={false} />
           <span>Your Local On-Site IT Partner</span>
         </div>
         <nav className={styles.footerNav} aria-label="Footer navigation">

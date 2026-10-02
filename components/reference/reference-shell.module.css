@@ -1,8 +1,7 @@
 .header { position: relative; z-index: 10; background: #fff; box-shadow: 0 1px 0 #e3e9ed; }
 .headerInner { width: min(100% - 48px, 1320px); min-height: 87px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
 .brand { display: flex; flex-direction: column; align-items: flex-start; min-width: 185px; line-height: 1.1; }
-.wordmark { white-space: nowrap; color: #0c2350; font-size: 25px; font-weight: 800; letter-spacing: -.055em; }
-.wordmark span { color: #08a957; }
+.brand .brandLogo { width: 166px; }
 .brandTag { color: #405777; font-size: 11px; margin-top: 4px; }
 .nav, .actions { display: flex; align-items: center; }
 .nav { gap: clamp(18px, 2.8vw, 42px); }
@@ -18,11 +17,11 @@
 .footer { color: #36566a; background: #f7fafb; border-top: 1px solid #dfe8eb; }
 .footerTop { width: min(100% - 48px, 1320px); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 44px 0; }
 .footerBrand { display: flex; flex-direction: column; gap: 2px; font-size: 11px; color: #637d8a; }
-.footerBrand .wordmark { font-size: 22px; }
+.footerBrand .footerLogo { width: 150px; }
 .footerNav { display: flex; gap: 28px; }
 .community { color: #8aa1ab; letter-spacing: .14em; font-size: 10px; font-weight: 700; text-align: right; }
 .footerBottom { border-top: 1px solid #e1e9ec; width: min(100% - 48px, 1320px); margin: auto; display: flex; justify-content: space-between; gap: 20px; padding: 21px 0 24px; color: #8397a0; font-size: 11px; }
 .footerBottom b { color: #08a857; padding-inline: 5px; }
-@media (max-width: 850px) { .headerInner { gap: 16px; } .nav { gap: 14px; } .brand { min-width: auto; } .wordmark { font-size: 21px; } .phoneNote { display: none; } .community { display: none; } }
-@media (max-width: 620px) { .headerInner { width: min(100% - 30px, 1320px); min-height: 72px; gap: 8px; } .wordmark { font-size: 19px; } .brandTag { font-size: 9px; } .nav { display: none; } .helpButton { padding: 11px 16px; font-size: 12px; } .footerTop { width: min(100% - 36px, 1320px); flex-direction: column; align-items: flex-start; padding: 34px 0; } .footerNav { flex-wrap: wrap; gap: 16px; } .footerBottom { width: min(100% - 36px, 1320px); flex-direction: column; gap: 6px; } }
+@media (max-width: 850px) { .headerInner { gap: 16px; } .nav { gap: 14px; } .brand { min-width: auto; } .brand .brandLogo { width: 142px; } .phoneNote { display: none; } .community { display: none; } }
+@media (max-width: 620px) { .headerInner { width: min(100% - 30px, 1320px); min-height: 72px; gap: 8px; } .brand .brandLogo { width: 126px; } .brandTag { font-size: 9px; } .nav { display: none; } .helpButton { padding: 11px 16px; font-size: 12px; } .footerTop { width: min(100% - 36px, 1320px); flex-direction: column; align-items: flex-start; padding: 34px 0; } .footerNav { flex-wrap: wrap; gap: 16px; } .footerBottom { width: min(100% - 36px, 1320px); flex-direction: column; gap: 6px; } }
 @media (prefers-reduced-motion: reduce) { .nav a, .footerNav a, .helpButton { transition: none; } }

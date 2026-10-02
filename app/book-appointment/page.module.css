@@ -6,14 +6,14 @@
 .breadcrumb { display: flex; align-items: center; gap: 9px; color: #405777; font-size: 12px; margin-bottom: 22px; }
 .breadcrumb a { color: #0b9960; }
 .eyebrow { display: inline-block; color: #13559b; background: #d8eafd; padding: 5px 11px; border-radius: 999px; font-size: 11px; letter-spacing: .08em; font-weight: 800; margin-bottom: 7px; }
-.hero h1 { font-family: Georgia, serif; color: #123148; font-size: clamp(39px, 4.3vw, 58px); letter-spacing: -.04em; }
+.hero h1 { font-family: var(--font-body), sans-serif; color: #123148; font-size: clamp(39px, 4.3vw, 58px); letter-spacing: -.04em; }
 .heroDescription { color: #5d7480; font-size: 16px; margin-top: 11px; }
-.handwriting { color: #0d2556; position: absolute; top: 58px; left: 56%; width: 130px; font-family: Georgia, serif; font-style: italic; transform: rotate(-9deg); font-size: 21px; line-height: 1.2; }
+.handwriting { color: #0d2556; position: absolute; top: 58px; left: 56%; width: 130px; font-family: var(--font-body), sans-serif; font-style: italic; transform: rotate(-9deg); font-size: 21px; line-height: 1.2; }
 .bookingArea { width: min(100% - 48px, 1280px); margin: auto; padding: 46px 0 72px; }
 .bookingLayout { display: grid; grid-template-columns: minmax(0, 1.68fr) minmax(280px, 1fr); gap: 28px; }
 .formCard, .reassurance, .callout { border-radius: 17px; box-shadow: 0 9px 31px #163f5720; }
 .formCard { padding: clamp(27px, 3vw, 43px); background: white; border: 1px solid #e3edef; }
-.formCard h2 { font-family: Georgia, serif; color: #19364b; font-size: 21px; letter-spacing: -.025em; margin-bottom: 17px; }
+.formCard h2 { font-family: var(--font-body), sans-serif; color: #19364b; font-size: 21px; letter-spacing: -.025em; margin-bottom: 17px; }
 .fieldGrid { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .fieldGrid label, .fullField { display: flex; flex-direction: column; gap: 9px; color: #16374c; font-size: 13px; font-weight: 700; }
 .fieldGrid label b, .fullField b { color: #0b2850; display: inline; }
@@ -25,7 +25,15 @@
 .fullField { margin-top: 20px; }
 .fullField textarea { resize: vertical; min-height: 122px; }
 .bookButton { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; border: 0; border-radius: 8px; padding: 16px; margin-top: 23px; background: #0aaa62; color: white; font-size: 15px; font-weight: 800; cursor: pointer; transition: transform .3s ease, background .3s ease, box-shadow .3s ease; }
-.bookButton:hover, .calloutButtons button:hover { background: #078b51; transform: translateY(-3px); box-shadow: 0 10px 20px #08693d30; }
+.bookButton:hover, .calloutButtons a:first-child:hover { background: #078b51; transform: translateY(-3px); box-shadow: 0 10px 20px #08693d30; }
+.bookButton:disabled { cursor: wait; opacity: .7; transform: none; box-shadow: none; }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.submitError { margin-top: 20px; padding: 12px 14px; border-radius: 8px; background: #fff0f0; color: #a52525; font-size: 13px; line-height: 1.5; }
+.submitError a { color: #8e1f1f; text-decoration: underline; }
+.submitSuccess { padding: 30px 10px; text-align: center; }
+.submitSuccess h2 { color: #108b59; font-size: clamp(25px, 3vw, 34px); }
+.submitSuccess p { color: #37566a; font-size: 15px; line-height: 1.6; margin-top: 14px; }
+.submitSuccess a { color: #087e50; font-weight: 800; text-decoration: underline; }
 .privacy { display: flex; align-items: center; justify-content: center; gap: 6px; color: #8297a1; text-align: center; font-size: 11px; margin-top: 13px; }
 .side { display: flex; flex-direction: column; gap: 22px; }
 .reassurance { background: #fff; border: 1px solid #e3edef; padding: 17px 28px; }
@@ -37,16 +45,16 @@
 .reassurance strong { color: #18364a; font-size: 14px; }
 .reassurance small { color: #6e8490; font-size: 12px; }
 .callout { position: relative; overflow: hidden; padding: 28px 26px 78px; background: #effbf5; border: 1px solid #d3eddf; }
-.callout h2 { font-family: Georgia, serif; color: #173b4a; font-size: 23px; }
+.callout h2 { font-family: var(--font-body), sans-serif; color: #173b4a; font-size: 23px; }
 .callout p { color: #5c7680; font-size: 13px; line-height: 1.6; margin: 11px 0 18px; }
 .callout > strong { color: #10985d; font-size: 30px; letter-spacing: -.04em; }
 .calloutButtons { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-.calloutButtons button { width: 100%; min-height: 47px; border: 0; border-radius: 7px; padding: 10px 13px; display: flex; align-items: center; justify-content: center; gap: 7px; color: white; background: #09a35d; font-weight: 700; font-size: 13px; white-space: nowrap; cursor: pointer; transition: transform .3s ease, background .3s ease, box-shadow .3s ease; }
-.calloutButtons button:nth-child(2) { background: #fff; color: #0a62c3; border: 1px solid #0a62c3; }
-.calloutButtons button:nth-child(2):hover { background: #edf5ff; }
-.callout > span { position: absolute; right: 20px; bottom: 13px; font: italic 15px Georgia, serif; color: #2cae70; transform: rotate(-6deg); }
+.calloutButtons a { width: 100%; min-height: 47px; border: 0; border-radius: 7px; padding: 10px 13px; display: flex; align-items: center; justify-content: center; gap: 7px; color: white; background: #09a35d; font-weight: 700; font-size: 13px; white-space: nowrap; cursor: pointer; transition: transform .3s ease, background .3s ease, box-shadow .3s ease; }
+.calloutButtons a:nth-child(2) { background: #fff; color: #0a62c3; border: 1px solid #0a62c3; }
+.calloutButtons a:nth-child(2):hover { background: #edf5ff; }
+.callout > span { position: absolute; right: 20px; bottom: 13px; color: #2cae70; font-family: var(--font-body), sans-serif; font-size: 15px; font-style: italic; transform: rotate(-6deg); }
 .bottomStatement { margin-top: 42px; padding: 32px 45px; border-radius: 15px; background: #eff8f5; border: 1px solid #dbece5; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-.bottomStatement h2 { font-family: Georgia, serif; color: #19394c; font-size: 26px; }
+.bottomStatement h2 { font-family: var(--font-body), sans-serif; color: #19394c; font-size: 26px; }
 .bottomStatement p { color: #64808b; font-size: 14px; margin-top: 5px; }
 .locations { display: flex; gap: 29px; color: #2b5964; font-size: 12px; font-weight: 700; }
 .locations span { display: flex; flex-direction: column; align-items: center; gap: 7px; white-space: nowrap; }
@@ -54,4 +62,4 @@
 @media (max-width: 900px) { .bookingLayout { grid-template-columns: minmax(0, 1.35fr) minmax(250px, .8fr); gap: 18px; } .formCard { padding: 25px; } .callout { padding: 24px 17px 70px; } .bottomStatement { padding: 26px; } .locations { gap: 12px; } }
 @media (max-width: 700px) { .hero { height: 270px; } .hero > img { object-position: 63% center; } .heroFade { background: linear-gradient(90deg, #f0f8fbf5, #eef6f8df 55%, #eef6f857); } .handwriting { left: 63%; font-size: 17px; } .bookingLayout { grid-template-columns: 1fr; } .side { display: grid; grid-template-columns: 1fr 1fr; } .bottomStatement { flex-direction: column; align-items: flex-start; } }
 @media (max-width: 550px) { .heroInner, .bookingArea { width: min(100% - 32px, 1280px); } .hero { height: 270px; } .breadcrumb { margin-bottom: 32px; } .hero h1 { font-size: 36px; } .heroDescription { max-width: 260px; font-size: 14px; } .handwriting { display: none; } .bookingArea { padding-top: 27px; } .formCard { padding: 20px; } .fieldGrid { gap: 17px; } .side { grid-template-columns: 1fr; } .bottomStatement { margin-top: 25px; } .locations { width: 100%; flex-wrap: wrap; justify-content: space-between; } }
-@media (prefers-reduced-motion: reduce) { .bookButton, .calloutButtons button, .fieldGrid input, .fullField textarea { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .bookButton, .calloutButtons a, .fieldGrid input, .fullField textarea { transition: none; } }

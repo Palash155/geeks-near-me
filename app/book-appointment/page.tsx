@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Buildings, CalendarBlank, House, Lightning, LockKey, MapPin, Phone, ShieldWarning } from "@phosphor-icons/react/ssr";
+import { Buildings, CalendarBlank, House, Lightning, MapPin, Phone, ShieldWarning } from "@phosphor-icons/react/ssr";
 import { ReferenceFooter, ReferenceHeader } from "@/components/reference/ReferenceShell";
-import { SelectedServicePicker } from "./SelectedServicePicker";
+import { AppointmentRequestForm } from "./AppointmentRequestForm";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -33,19 +33,7 @@ export default async function BookAppointmentPage({ searchParams }: { searchPara
 
         <section className={styles.bookingArea} id="booking-form" aria-label="Appointment details">
           <div className={styles.bookingLayout}>
-            <div className={styles.formCard}>
-              <h2>Selected Service</h2>
-              <SelectedServicePicker initialSlug={slug} />
-              <div className={styles.fieldGrid}>
-                <label><span>Your Name <b>*</b></span><input type="text" placeholder="Enter your full name" /></label>
-                <label><span>Phone Number <b>*</b></span><input type="tel" placeholder="e.g. 0403 171 348" /></label>
-                <label><span>Address <b>*</b></span><input type="text" placeholder="e.g. Roselands, Sydney" /></label>
-                <label><span>Preferred Time <b>*</b></span><span className={styles.inputWrap}><input type="text" placeholder="Select a date & time" /><CalendarBlank size={20} aria-hidden="true" /></span></label>
-              </div>
-              <label className={styles.fullField}><span>Tell us about the issue <b>*</b></span><textarea placeholder="e.g. printer not printing, error message, etc." rows={5} /></label>
-              <button className={styles.bookButton} type="button"><CalendarBlank size={19} aria-hidden="true" /> Book Appointment <ArrowRight size={19} aria-hidden="true" /></button>
-              <p className={styles.privacy}><LockKey size={15} aria-hidden="true" /> Your information is kept private and used only for this booking.</p>
-            </div>
+            <AppointmentRequestForm initialSlug={slug} />
             <aside className={styles.side} aria-label="Booking support">
               <div className={styles.reassurance}>
                 <div><span className={styles.sideIcon}><Lightning size={27} weight="fill" aria-hidden="true" /></span><p><strong>Fast Response</strong><small>We&apos;ll confirm your booking shortly.</small></p></div>
@@ -56,7 +44,7 @@ export default async function BookAppointmentPage({ searchParams }: { searchPara
                 <h2>Not sure what to book?</h2>
                 <p>No worries. Just call us or request a call back. We&apos;ll take it from there.</p>
                 <strong>0403 171 348</strong>
-                <div className={styles.calloutButtons}><button type="button"><Phone size={19} weight="fill" aria-hidden="true" /> Call Now</button><button type="button"><CalendarBlank size={19} aria-hidden="true" /> Request a Call Back</button></div>
+                <div className={styles.calloutButtons}><a href="tel:0403171348"><Phone size={19} weight="fill" aria-hidden="true" /> Call Now</a><a href="#booking-form"><CalendarBlank size={19} aria-hidden="true" /> Request a Call Back</a></div>
                 <span>We&apos;re here to help!</span>
               </div>
             </aside>
